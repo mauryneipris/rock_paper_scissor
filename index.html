@@ -36,30 +36,30 @@
     if (playerSelection == "rock" && computerSelection == "paper") {
         computerScore++;
         
-        return "You Lose! Paper beats Rock. Computer's score is: " + computerScore ;
+        return "You Lose! Paper beats Rock. The current score is: Player: " + playerScore + " - Computer: " + computerScore ;
         
     } else if (playerSelection == "paper" && computerSelection == "scissors") {
         computerScore++;
         
-        return "You Lose! Scissors cuts Paper. Computer's score is: " + computerScore ;
+        return "You Lose! Scissors cuts Paper. The current score is: Player: " + playerScore + " - Computer: " + computerScore ;
         
     } else if (playerSelection == "scissors" && computerSelection == "rock") {
         computerScore++;
         
-        return "You Lose! Rock blunts Scissors. Computer's score is: " + computerScore ;
+        return "You Lose! Rock blunts Scissors. The current score is: Player: " + playerScore + " - Computer: " + computerScore ;
         
     } else if (playerSelection == "rock" && computerSelection == "scissors") {
         playerScore++;
         
-        return "You Win! Rock blunts Scissors. Player's score is: " + playerScore;
+        return "You Win! Rock blunts Scissors. The current score is: Player: " + playerScore + " - Computer: " + computerScore;
     } else if (playerSelection == "scissors" && computerSelection == "paper") {
         playerScore++;
         
-        return "You Win! Scissors cuts Paper. Player's score is: " + playerScore;
+        return "You Win! Scissors cuts Paper. The current score is: Player: " + playerScore + " - Computer: " + computerScore;
     } else if (playerSelection == "paper" && computerSelection == "rock") {
         playerScore++;
         
-        return "You Win! Paper covers Rock. Player's score is: " + playerScore;
+        return "You Win! Paper covers Rock. The current score is: Player: " + playerScore + " - Computer: " + computerScore;
     } else if (playerSelection == computerSelection) {
         return "It's a Draw. The current score is: Player: " + playerScore + " - Computer: " + computerScore;
     }
