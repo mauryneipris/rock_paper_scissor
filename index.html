@@ -10,7 +10,9 @@
 
     const chosen = prompt("rock, paper, or scissors");
     const playerSelection = chosen.toLowerCase();
-
+    const computerSelection = computerPlay();
+    let playerScore = 0;
+    let computerScore = 0;
 
 
 
@@ -27,29 +29,51 @@
         
     }
 
-    const computerSelection = computerPlay();
 
-    function playRound(playerSelection, computerSelection) {
+    function playRound(playerSelection, computerSelection, playerScore, computerScore) {
         //code here
+ 
     if (playerSelection == "rock" && computerSelection == "paper") {
-        return "You Lose! Paper beats Rock";
-    } else if (playerSelection == "paper" && computerSelection == "scissors") {
-        return "You Lose! Scissors cuts Paper";
-    } else if (playerSelection == "scissors" && computerSelection == "rock") {
-        return "You Lose! Rock blunts Scissors";
-    } else if (playerSelection == "rock" && computerSelection == "scissors") {
-        return "You Win! Rock blunts Scissors";
-    } else if (playerSelection == "scissors" && computerSelection == "paper") {
-        return "You Win! Scissors cuts Paper";
-    } else if (playerSelection == "paper" && computerSelection == "rock") {
-        return "You Win! Paper covers Rock";
-    } else if (playerSelection == computerSelection) {
-        return "It's a Draw";
-    }
+        computerScore++;
         
+        return "You Lose! Paper beats Rock. Computer's score is: " + computerScore ;
+        
+    } else if (playerSelection == "paper" && computerSelection == "scissors") {
+        computerScore++;
+        
+        return "You Lose! Scissors cuts Paper. Computer's score is: " + computerScore ;
+        
+    } else if (playerSelection == "scissors" && computerSelection == "rock") {
+        computerScore++;
+        
+        return "You Lose! Rock blunts Scissors. Computer's score is: " + computerScore ;
+        
+    } else if (playerSelection == "rock" && computerSelection == "scissors") {
+        playerScore++;
+        
+        return "You Win! Rock blunts Scissors. Player's score is: " + playerScore;
+    } else if (playerSelection == "scissors" && computerSelection == "paper") {
+        playerScore++;
+        
+        return "You Win! Scissors cuts Paper. Player's score is: " + playerScore;
+    } else if (playerSelection == "paper" && computerSelection == "rock") {
+        playerScore++;
+        
+        return "You Win! Paper covers Rock. Player's score is: " + playerScore;
+    } else if (playerSelection == computerSelection) {
+        return "It's a Draw. The current score is: Player: " + playerScore + " - Computer: " + computerScore;
     }
-    console.log(playRound(playerSelection, computerSelection))
-
+    
+    }
+    console.log(playRound(playerSelection, computerSelection, playerScore, computerScore))
+   /* function game() {
+        for (i = 0; i < 5; i++) {
+            playRound(playerSelection, computerSelection)
+        }
+    }
+    */
+    
+    
   </script>
 </body>
 </html>
