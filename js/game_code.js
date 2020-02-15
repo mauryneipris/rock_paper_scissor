@@ -5,7 +5,8 @@ let playerSelection = chosen.toLowerCase();
 let computerSelection = computerPlay();
 let playerScore = 0;
 let computerScore = 0;
-
+let para = document.createElement("P");
+let playBtn = document.createElement("BUTTON");
 
 
 function computerPlay() {
@@ -69,7 +70,12 @@ function game(playerSelection, computerSelection, playerScore, computerScore) {
     }
 }
 
-console.log(playRound(playerSelection, computerSelection, playerScore, computerScore))
+
+playBtn.innerText = "Play again?";
+para.innerHTML =  playRound(playerSelection, computerSelection, playerScore, computerScore);
+document.getElementById("results-div").appendChild(para);
+document.getElementById("results-div").appendChild(playBtn);
+
 
 
 
