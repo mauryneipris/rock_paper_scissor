@@ -23,9 +23,8 @@ function computerPlay() {
     
 }
 
-function playRound(playerSelection, computerSelection, playerScore, computerScore) {
+function playRound(playerSelection, computerSelection) {
     //code here
-
 if (playerSelection == "rock" && computerSelection == "paper") {
     computerScore++;
     console.log(computerScore);
@@ -59,27 +58,34 @@ if (playerSelection == "rock" && computerSelection == "paper") {
 }
 
 }
+console.log(playRound(playerSelection, computerSelection));
 
-function game( computerSelection, playerScore, computerScore) {
-    for (i = 0; i < 5; i++) {
-        let again = prompt("Play again? Yes or no?");
-        let playAgain = again.toLowerCase();
+function runGame( computerSelection, playerScore, computerScore) {
+ for (let i = 0; i < 6; i++) {
+     if ( i === 5) {
+         //end game and display final score
+         console.log("The final score is: Player: " + playerScore + " - Computer: " + computerScore)
+     } else {
+         //prompt and play play another round
+         let newChoices = prompt("rock, paper, or scissors?")
+         let playerSelection = newChoices.toLowerCase();
+         
+         console.log("Round:" + i)
+         console.log(playRound(playerSelection, computerSelection, playerScore, computerScore))
+         
+     }
 
-        if (playAgain == "yes") {
-            console.log(playRound(playerSelection, computerSelection, playerScore, computerScore));
-        } else {
-            return "Thanks for playing. The final score is: Player: " + playerScore + " - Computer: " + computerScore;
-        }
-    }
+ }
 }
 
-console.log(playRound(playerSelection, computerSelection, playerScore, computerScore));
 
 
-playBtn.innerText = "Play again?";
-para.innerHTML =  playRound(playerSelection, computerSelection, playerScore, computerScore);
-document.getElementById("results-div").appendChild(para);
-document.getElementById("results-div").appendChild(playBtn);
+
+
+// playBtn.innerText = "Play again?";
+// para.innerHTML =  playRound(playerSelection, computerSelection, playerScore, computerScore);
+// document.getElementById("results-div").appendChild(para);
+// document.getElementById("results-div").appendChild(playBtn);
 
 
 
