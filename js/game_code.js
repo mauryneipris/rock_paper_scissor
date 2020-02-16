@@ -4,18 +4,18 @@
 // let playerSelection = chosen.toLowerCase();
 // let computerSelection = computerPlay();
 
-let para = document.createElement("P");
-let playBtn = document.createElement("BUTTON");
+// let para = document.createElement("P");
+// let playBtn = document.createElement("BUTTON");
 
 
 function computerPlay() {
-    let random =  Math.floor(Math.random() * 3) + 1 ; 
-    let choice = ['rock', 'paper', 'scissors'];
-    return choice[random];  
+    const choiceArr = ['rock', 'paper', 'scissors'];
+    return  choiceArr[Math.floor(Math.random() * choiceArr.length)];  
 }
 
 let playerScore = 0;
 let computerScore = 0;
+
 
 function playRound(playerSelection, computerSelection) {
     //code here
@@ -67,28 +67,28 @@ function runGame() {
 
 //  }
 
-    round = 1;
-    while (round < 6) {
+    round = 0;
+    while (round < 5) {
         
         let newChoices = prompt("rock, paper, or scissors?")
         let playerSelection = newChoices.toLowerCase();
         let computerSelection = computerPlay();
-        console.log("Round:" + round)
-        console.log(playRound(playerSelection, computerSelection, playerScore, computerScore))
+        // console.log("Round:" + round)
+        console.log(playRound(playerSelection, computerSelection))
         round++;
     }
 
- if (playerScore > computerScore) {
-     return "You Win! Final Score: Player: " + playerScore + " - Computer: " + computerScore;
- } else if (playerScore < computerScore ) {
-    return "You Lose! Final Score: Player: " + playerScore + " - Computer: " + computerScore;
- } else {
-     return "It's a Draw!"
- }
+    if (playerScore > computerScore) {
+        console.log("You Win! Final Score: Player: " + playerScore + " - Computer: " + computerScore)
+    } else if (playerScore < computerScore ) {
+        console.log("You Lose! Final Score: Player: " + playerScore + " - Computer: " + computerScore)
+    } else {
+        console.log("It's a Draw!")
+    }
 
 };
 
-runGame();
+ runGame();
 
 
 
