@@ -12,15 +12,7 @@ let playBtn = document.createElement("BUTTON");
 function computerPlay() {
     let random =  Math.floor(Math.random() * 3) + 1 ; 
     let choice = ['rock', 'paper', 'scissors'];
-    return choice[random];
-    // if (random == 1) {
-    //     return "rock";
-    // } else if (random == 2) {
-    //     return "paper";
-    // } else {
-    //     return "scissors";
-    // }
-    
+    return choice[random];  
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -60,13 +52,15 @@ if (playerSelection == "rock" && computerSelection == "paper") {
 }
 console.log(playRound(playerSelection, computerSelection));
 
-function runGame( computerSelection, playerScore, computerScore) {
+function runGame() {
+
  for (let i = 0; i < 6; i++) {
      if ( i === 5) {
          //end game and display final score
          console.log("The final score is: Player: " + playerScore + " - Computer: " + computerScore)
      } else {
          //prompt and play play another round
+         let computerSelection = computerPlay();
          let newChoices = prompt("rock, paper, or scissors?")
          let playerSelection = newChoices.toLowerCase();
          
@@ -76,6 +70,13 @@ function runGame( computerSelection, playerScore, computerScore) {
      }
 
  }
+
+ if (playerScore > computerScore) {
+     return "You Win! Final Score: Player: " + playerScore + " - Computer: " + computerScore;
+ } else if (playerScore < computerScore ) {
+    return "You Lose! Final Score: Player: " + playerScore + " - Computer: " + computerScore;
+ }
+
 }
 
 
