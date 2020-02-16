@@ -50,26 +50,36 @@ if (playerSelection == "rock" && computerSelection == "paper") {
 }
 
 }
-console.log(playRound(playerSelection, computerSelection));
+// console.log(playRound(playerSelection, computerSelection));
 
 function runGame() {
 
- for (let i = 0; i < 6; i++) {
-     if ( i === 5) {
-         //end game and display final score
-         console.log("The final score is: Player: " + playerScore + " - Computer: " + computerScore)
-     } else {
-         //prompt and play play another round
-         let computerSelection = computerPlay();
-         let newChoices = prompt("rock, paper, or scissors?")
-         let playerSelection = newChoices.toLowerCase();
+//  for (let i = 0; i < 6; i++) {
+//      if ( i === 5) {
+//          //end game and display final score
+//          console.log("The final score is: Player: " + playerScore + " - Computer: " + computerScore)
+//      } else {
+//          //prompt and play play another round
+//          let computerSelection = computerPlay();
+//          let newChoices = prompt("rock, paper, or scissors?")
+//          let playerSelection = newChoices.toLowerCase();
          
-         console.log("Round:" + i)
-         console.log(playRound(playerSelection, computerSelection, playerScore, computerScore))
+//          console.log("Round:" + i)
+//          console.log(playRound(playerSelection, computerSelection, playerScore, computerScore))
          
-     }
+//      }
 
- }
+//  }
+
+    round = 0;
+    while (round < 5) {
+        let computerSelection = computerPlay();
+        let newChoices = prompt("rock, paper, or scissors?")
+        let playerSelection = newChoices.toLowerCase();
+        console.log("Round:" + round)
+        console.log(playRound(playerSelection, computerSelection, playerScore, computerScore))
+        round++;
+}
 
  if (playerScore > computerScore) {
      return "You Win! Final Score: Player: " + playerScore + " - Computer: " + computerScore;
