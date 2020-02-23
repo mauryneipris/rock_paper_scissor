@@ -1,0 +1,12 @@
+h1 {
+    text-align: center;
+}
+
+#choice-btns {
+    display: flex;
+    justify-content: center;
+}
+
+#choice-btns button {
+    margin: 5px;
+}

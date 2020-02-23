@@ -1,19 +1,13 @@
-// Your JavaScript goes here!
-
-// let para = document.createElement("P");
-// let playBtn = document.createElement("BUTTON");
+let resultsPara = document.createElement("P");
+let playerScore = 0;
+let computerScore = 0;
 
 function computerPlay() {
     const choiceArr = ['rock', 'paper', 'scissors'];
     return  choiceArr[Math.floor(Math.random() * choiceArr.length)];  
 }
 
-let playerScore = 0;
-let computerScore = 0;
-
-
 function playRound(playerSelection, computerSelection) {
-    //code here
     if (playerSelection == "rock" && computerSelection == "paper") {
         computerScore++; 
         return "You Lose! Paper beats Rock. The current score is: Player: " + playerScore + " - Computer: " + computerScore;
@@ -38,41 +32,59 @@ function playRound(playerSelection, computerSelection) {
         return "You Win! Paper covers Rock. The current score is: Player: " + playerScore + " - Computer: " + computerScore;
     } else if (playerSelection == computerSelection) {   
         return "It's a Draw. The current score is: Player: " + playerScore + " - Computer: " + computerScore;
-    }
-
+    } 
 }
 
+function playAgain() {
+    let playBtn = document.createElement("BUTTON");
+    playBtn.innerText = "Play again?";    
+    document.getElementById("results-div").appendChild(playBtn);
+    playBtn.addEventListener('click', (e) => {
+       resultsPara.textContent = '';
+       document.getElementById("results-div").removeChild(playBtn);
+       playerScore = 0;
+       computerScore = 0;
+    })
+} 
 
-function runGame() {
-
-    round = 0;
-    while (round < 5) {
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', (e) => {
         
-        let newChoices = prompt("rock, paper, or scissors?")
-        let playerSelection = newChoices.toLowerCase();
+        let playerSelection = button.id;
         let computerSelection = computerPlay();
-        console.log(playRound(playerSelection, computerSelection))
-        round++;
-    }
+        resultsPara.textContent = playRound(playerSelection, computerSelection);
+        document.getElementById("results-div").appendChild(resultsPara);
+        if (playerScore === 5 || computerScore == 5) {
+            resultsPara.textContent = ` GAME OVER. ${(playerScore > computerScore) ? "You win!" : "You lose!" } The Final Score is: Player: ` + playerScore + ` - Computer: ` + computerScore;
+            playAgain();
+        } 
+    })
+})
+// function runGame() {
 
-    if (playerScore > computerScore) {
-        console.log("You Win! Final Score: Player: " + playerScore + " - Computer: " + computerScore)
-    } else if (playerScore < computerScore ) {
-        console.log("You Lose! Final Score: Player: " + playerScore + " - Computer: " + computerScore)
-    } else {
-        console.log("It's a Draw!")
-    }
+//     round = 0;
+//     while (round < 5) {
+        
+//         let newChoices = prompt("rock, paper, or scissors?")
+//         let playerSelection = newChoices.toLowerCase();
+//         let computerSelection = computerPlay();
+//         console.log(playRound(playerSelection, computerSelection))
+//         round++;
+//     }
 
-};
+//     if (playerScore > computerScore) {
+//         console.log("You Win! Final Score: Player: " + playerScore + " - Computer: " + computerScore)
+//     } else if (playerScore < computerScore ) {
+//         console.log("You Lose! Final Score: Player: " + playerScore + " - Computer: " + computerScore)
+//     } else {
+//         console.log("It's a Draw!")
+//     }
 
- runGame();
+// };
 
+//  runGame();
 
-
-// playBtn.innerText = "Play again?";
-// para.innerHTML =  playRound(playerSelection, computerSelection, playerScore, computerScore);
-// document.getElementById("results-div").appendChild(para);
-// document.getElementById("results-div").appendChild(playBtn);
 
 
 
